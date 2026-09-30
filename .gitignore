@@ -1,1 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
 
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.idea/
+.vscode/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
