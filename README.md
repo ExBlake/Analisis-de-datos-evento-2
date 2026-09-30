@@ -6,126 +6,101 @@ Departamento de Sistemas · Ingeniería de Sistemas
 
 Curso: Análisis de Datos · Docente: Daniel Alexis Nieto Mora · Semestre 2026-2
 
-## Integrantes y participación
+## Integrantes
 
-| Integrante | Commits principales asignados | Autor registrado en Git |
+| Integrante | Usuario en Git |
+|---|---|
+| Julián | Julián Zapata |
+| Santiago | ExBlake |
+| Oscar Alexis | Oscar Alexis Pineda Henao |
+| Jacobo | JCobz0714 |
+
+## Objetivo
+
+Aplicar lo visto en las primeras semanas del curso en un proyecto práctico: explorar tres bases de datos, justificar la elección de una, hacerle un análisis exploratorio completo (EDA) y prepararla con técnicas de preprocesamiento y reducción de dimensionalidad (PCA).
+
+## Datasets explorados
+
+| Dataset | Tipo de datos | Resumen |
 |---|---|---|
-| Julián | 1, 5, 9 | Julián Zapata |
-| Santiago | 2, 6, 10 | ExBlake |
-| Oscar Alexis | 3, 7, 11 | Oscar Alexis Pineda Henao |
-| Jacobo | 4, 8, 12 | JCobz0714 |
+| HCV Data | Tabular (datos clínicos) | 615 pacientes con edad, sexo, diagnóstico y 10 resultados de laboratorio |
+| Absenteeism at Work | Tabular con componente temporal | 740 registros de ausentismo de 36 empleados de una empresa |
+| Ajwa or Medjool | Imágenes y tabular | 200 imágenes y características de 20 dátiles de dos variedades |
 
-El historial local contiene aportes de los cuatro integrantes. El seguimiento se encuentra en [TASKS.md](TASKS.md); el commit 12 reúne la documentación y revisión final y debe registrarlo Jacobo desde su cuenta.
+Las tres bases vienen del UCI Machine Learning Repository. Los enlaces y la documentación de cada una están en el notebook 01.
 
-## Objetivo y contexto
+## Dataset seleccionado
 
-Aplicar la metodología del segundo evento evaluativo de Análisis de Datos: comparar tres bases candidatas, justificar una selección, realizar un EDA con hipótesis exploratorias y preparar los datos para escalado y reducción de dimensionalidad mediante PCA. Los resultados describen esta muestra y no constituyen diagnósticos médicos ni relaciones causales.
-
-## Datasets explorados y selección
-
-| Dataset | Datos evaluados | Fortalezas y límites identificados |
-|---|---|---|
-| HCV Data | CSV local: 615 registros, 14 columnas incluido ID; 10 pruebas de laboratorio, edad, sexo y diagnóstico | Documentación clara, tamaño manejable y medidas continuas. Tiene faltantes y desbalance diagnóstico. |
-| Absenteeism at Work | CSV local: 740 registros, 21 columnas; componente temporal de ausentismo | Sin faltantes, pero 34 filas repetidas y códigos que requieren interpretación. Solo representa 36 empleados; observaciones repetidas no son independientes. |
-| Ajwa or Medjool | Comparación documental de imágenes y características de dátiles; no descargado | Modalidades tabular y visual, pero 200 imágenes corresponden a 20 frutos y la descarga es menos manejable. |
-
-Se seleccionó **HCV Data** por su documentación, relevancia, manejabilidad y variables apropiadas para EDA, imputación, correlaciones y PCA. El Notebook 01 documenta nueve criterios y una valoración del equipo: HCV obtuvo 43/45, ausentismo 35/45 y Ajwa or Medjool 27/45. Son puntuaciones justificadas por el equipo, no un indicador externo de calidad.
-
-Las fuentes y enlaces de origen se encuentran en el Notebook 01. HCV y ausentismo se analizan desde archivos locales; Ajwa or Medjool se compara a partir de la investigación documental previa.
+Elegimos **HCV Data**. Lo comparamos con las otras dos bases usando nueve criterios (completitud, documentación, relevancia, manejabilidad, tamaño, calidad de variables, facilidad para el EDA, preprocesamiento y reducción de dimensionalidad) y obtuvo 43 de 45 puntos. Tiene pocos faltantes, buena documentación, variables clínicas continuas y un diagnóstico que sirve para comparar grupos y para colorear el PCA.
 
 ## Estructura del repositorio
 
 ```text
 Analisis-de-datos-evento-2/
 ├── README.md
-├── TASKS.md
 ├── requirements.txt
 ├── .gitignore
 ├── data/
-│   ├── raw/
-│   │   ├── hcvdat0.csv
-│   │   └── Absenteeism_at_work.csv
-│   └── processed/
-│       └── hcv_processed.csv
+│   ├── raw/          # datos originales
+│   └── processed/    # hcv_processed.csv, resultado del preprocesamiento
 ├── notebooks/
-│   ├── 01_exploracion_datasets.ipynb
-│   ├── 02_eda_hcv.ipynb
-│   └── 03_preprocesamiento_reduccion.ipynb
-└── images/
-    ├── comparacion_datasets.png
-    ├── faltantes_por_variable.png
-    ├── atipicos_por_grupo.png
-    └── pca_pc1_pc2.png
+│   ├── 01_exploracion_datasets.ipynb       # Fase 1: comparación y selección
+│   ├── 02_eda_hcv.ipynb                    # Fase 2: EDA
+│   └── 03_preprocesamiento_reduccion.ipynb # Fase 3: preprocesamiento y PCA
+└── images/           # gráficas exportadas
 ```
 
-Los datos originales se conservan. El Notebook 03 genera el CSV procesado; las figuras exportadas permiten revisar y presentar el trabajo.
+## Tecnologías
 
-## Tecnologías e instalación
+Python, pandas, NumPy, Matplotlib, seaborn, SciPy, scikit-learn y Jupyter.
 
-Python, pandas, NumPy, Matplotlib, seaborn, SciPy, scikit-learn, IPython y Jupyter. Se recomienda Python 3.13 para reproducir el entorno indicado en los metadatos de los notebooks. Las dependencias no están fijadas a versiones exactas.
+## Instalación
 
 ```bash
-git clone https://github.com/ExBlake/Analisis-de-datos-evento-2.git
+git clone [https://github.com/ExBlake/Analisis-de-datos-evento-2.git](https://github.com/ExBlake/Analisis-de-datos-evento-2.git "https://github.com/exblake/analisis-de-datos-evento-2.git")
 cd Analisis-de-datos-evento-2
-python -m venv .venv
-```
-
-Activar el entorno según el sistema:
-
-```powershell
-# Windows PowerShell
-.\.venv\Scripts\Activate.ps1
-```
-
-```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
 # Linux / macOS
-source .venv/bin/activate
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
-Instalar las dependencias y abrir Jupyter:
+## Ejecución
 
 ```bash
-python -m pip install -r requirements.txt
-python -m jupyter notebook
+jupyter notebook
 ```
 
-## Ejecución y metodología
+Abrir los notebooks de la carpeta `notebooks/` en orden (01 → 02 → 03) y ejecutarlos completos. Las rutas de los datos son relativas a esa carpeta.
 
-Abrir y ejecutar los notebooks en orden **01 → 02 → 03**, cada uno con su kernel trabajando desde la carpeta `notebooks/`. Usar “Restart Kernel and Run All Cells” para evitar depender de variables de sesiones anteriores. Las rutas de los notebooks 01 y 02, y algunas figuras del 03, están basadas en `../data/` y `../images/`; ejecutar esas celdas desde la raíz con otro método exige ajustar el directorio de trabajo.
+## Metodología
 
-1. **Notebook 01:** investigación, calidad inicial, tabla comparativa y selección de HCV.
-2. **Notebook 02:** estructura y clasificación de variables; faltantes, duplicados y formatos; estadística descriptiva, distribuciones y atípicos; análisis bivariado y multivariado con Pearson y Spearman; cuatro hipótesis e insights.
-3. **Notebook 03:** retirada del ID, revisión de duplicados, imputación, indicador de faltante, transformaciones logarítmicas y One-Hot Encoding; exportación del CSV; StandardScaler y PCA sobre 11 variables cuantitativas.
-
-Las columnas `Category_*` del CSV procesado son etiquetas y no deben incluirse como predictores del diagnóstico. El archivo se guarda antes del escalado: no contiene variables estandarizadas ni puntuaciones PCA.
+1. **Notebook 01:** documentación de las tres bases, comparación con tabla de criterios y selección de HCV Data.
+2. **Notebook 02:** estructura y clasificación de variables, calidad de los datos, estadística descriptiva, distribuciones y valores atípicos, análisis bivariado y multivariado, pruebas de hipótesis e insights.
+3. **Notebook 03:** tratamiento de faltantes, transformación logarítmica, One-Hot Encoding, escalado con StandardScaler y PCA.
 
 ## Principales resultados
 
-- **Desbalance:** 533 de los 615 registros son donantes (86.67%); hay 75 pacientes y 7 donantes sospechosos.
-- **Faltantes:** 31 celdas ausentes en 26 filas. `ALP` concentra 18 y `CHOL` 10; en fibrosis faltan 9 de las 21 mediciones de ALP. No se detectaron duplicados clínicos.
-- **Atípicos:** IQR identificó 65 en GGT y 64 en AST; 51 de los atípicos de AST pertenecen a pacientes. Se conservaron los extremos por su posible significado clínico.
-- **Relaciones descritas:** ALB–PROT y AST–GGT presentan asociaciones positivas moderadas. ALT–AST resulta más marcada con Spearman que con Pearson, en concordancia con el sesgo observado. Las celdas correspondientes deben ejecutarse para regenerar sus salidas.
-- **Hipótesis implementadas:** Welch para log(AST), Welch para ALB con sensibilidad al posible error, chi-cuadrado sexo–grupo clínico y prueba de correlación ALB–PROT. Las interpretaciones previas reportan tres rechazos de H0 y ausencia de rechazo para sexo, pero las celdas de contraste no tienen resultados guardados; se requiere verificar sus p-valores antes de presentar esas decisiones como resultados finales reproducidos.
-- **Preprocesamiento guardado:** 615 filas y 19 columnas numéricas sin faltantes, con seis marcadores transformados mediante log1p.
-- **PCA guardado:** PC1 explica 21.23% y PC2 18.46%; juntas, 39.69%. Siete componentes conservan 83.95% y nueve 93.41% de la varianza de las entradas estandarizadas.
+- **Desbalance:** 533 de los 615 registros son donantes sanos (86.67 %).
+- **Faltantes:** 31 celdas vacías en 26 filas; `ALP` concentra 18, todas de pacientes. No hay duplicados.
+- **Atípicos:** la mayoría son de pacientes (por ejemplo, 51 de los 64 atípicos de `AST`), así que se conservaron. Se encontró un error de digitación en el registro 217 (`ALB` mayor que `PROT`).
+- **Correlaciones:** las más fuertes son `ALB–PROT` (Pearson 0.557) y `AST–GGT` (0.491).
+- **Hipótesis:** se confirmaron las diferencias de `AST` y `ALB` entre donantes y pacientes y la correlación `ALB–PROT`; la asociación entre sexo y diagnóstico no fue significativa (p = 0.0673).
+- **PCA:** PC1 explica el 21.23 % y PC2 el 18.46 % de la varianza (39.69 % juntas). Con 7 componentes se conserva el 83.95 %.
 
-![Varianza y perfiles proyectados en las dos primeras componentes](images/pca_pc1_pc2.png)
+![Pacientes proyectados en PC1 y PC2 según su diagnóstico](images/pca_pc1_pc2.png)
 
-La proyección muestra separación parcial de cirrosis y sospechosos respecto a donantes, con superposición entre clases. La varianza retenida no equivale a exactitud de clasificación.
+## Conclusiones
 
-## Conclusiones y límites
+- HCV Data permitió aplicar todo el proceso visto en el curso: calidad de datos, estadística descriptiva, relaciones entre variables, pruebas de hipótesis, preprocesamiento y PCA.
+- Los marcadores de laboratorio cambian claramente entre donantes y pacientes, sobre todo en cirrosis, y eso se confirmó con las pruebas de hipótesis y con el PCA.
+- Los valores atípicos no se eliminaron porque en su mayoría son valores reales de pacientes.
+- El PCA con dos componentes sirve para visualizar, pero deja por fuera el 60.31 % de la varianza. Para un modelo convendría usar 7 componentes.
+- Limitaciones: el error de `ALB` del registro 217 no se corrigió en el preprocesamiento y la imputación usó el diagnóstico de cada paciente.
 
-HCV permitió integrar calidad, estadística exploratoria, relaciones entre variables y reducción dimensional. El desbalance, los faltantes concentrados y las colas largas justifican decisiones contextualizadas, en lugar de eliminar automáticamente registros. PCA ofrece una vista de perfiles multivariados, pero dos componentes dejan fuera 60.31% de la varianza; para modelar se debe comparar la representación completa con otras cantidades de componentes mediante validación.
+## Entregables
 
-La revisión final identificó dos pendientes analíticos:
-
-- El EDA señala `ALB = 82.2` del registro 217 como posible error porque supera `PROT = 67.4`. El preprocesamiento actual conserva ese valor. Las cifras de PCA describen esa versión; una corrección exige recalcular los resultados.
-- La imputación por categoría utiliza el diagnóstico y se ajusta sobre toda la base. Aunque PCA excluye las columnas diagnósticas, sus entradas imputadas dependen de ellas. Para predecir un diagnóstico desconocido se necesita imputación sin esa etiqueta y separar entrenamiento y prueba antes de ajustar imputación, escalado y PCA.
-
-Las cuatro pruebas son exploratorias, sin ajuste por comparaciones múltiples. No rechazar una asociación sexo–diagnóstico no demuestra independencia ni descarta confusión.
-
-## Estado de revisión y entregables
-
-Se revisaron las rutas referidas, las dependencias importadas, el historial de autores, los títulos y etiquetas definidos en el código y las salidas existentes. No hay errores guardados, pero existen celdas sin ejecutar en el Notebook 02. **No se ejecutaron los notebooks ni pruebas durante el cierre**, conforme a la indicación del usuario; la ejecución de principio a fin y la inspección de figuras regeneradas quedan pendientes. El commit 12 permanece pendiente de esa validación.
-
-Entregables: los tres notebooks, datos originales y procesados, figuras, documentación y video explicativo de máximo 8 minutos.
+- Este repositorio con los tres notebooks, los datos y las gráficas.
+- Video explicativo de máximo 8 minutos.
