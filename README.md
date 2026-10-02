@@ -57,7 +57,7 @@ Python, pandas, NumPy, Matplotlib, seaborn, SciPy, scikit-learn y Jupyter.
 ## Instalación
 
 ```bash
-git clone [https://github.com/ExBlake/Analisis-de-datos-evento-2.git](https://github.com/ExBlake/Analisis-de-datos-evento-2.git "https://github.com/exblake/analisis-de-datos-evento-2.git")
+git clone https://github.com/exblake/analisis-de-datos-evento-2.git
 cd Analisis-de-datos-evento-2
 python -m venv venv
 # Windows
