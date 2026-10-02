@@ -10,9 +10,9 @@ Curso: Análisis de Datos · Docente: Daniel Alexis Nieto Mora · Semestre 2026-
 
 | Integrante | Usuario en Git |
 |---|---|
-| Julián | Julián Zapata |
+| Julián | JulianHZ711 |
 | Santiago | ExBlake |
-| Oscar Alexis | Oscar Alexis Pineda Henao |
+| Oscar Alexis | AlexisPineda21 |
 | Jacobo | JCobz0714 |
 
 ## Objetivo
