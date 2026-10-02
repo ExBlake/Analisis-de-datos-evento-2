@@ -57,7 +57,7 @@ Python, pandas, NumPy, Matplotlib, seaborn, SciPy, scikit-learn y Jupyter.
 ## Instalación
 
 ```bash
-git clone https://github.com/exblake/analisis-de-datos-evento-2.git
+git clone https://github.com/ExBlake/Analisis-de-datos-evento-2.git
 cd Analisis-de-datos-evento-2
 python -m venv venv
 # Windows
@@ -88,7 +88,7 @@ Abrir los notebooks de la carpeta `notebooks/` en orden (01 → 02 → 03) y eje
 - **Atípicos:** la mayoría son de pacientes (por ejemplo, 51 de los 64 atípicos de `AST`), así que se conservaron. Se encontró un error de digitación en el registro 217 (`ALB` mayor que `PROT`).
 - **Correlaciones:** las más fuertes son `ALB–PROT` (Pearson 0.557) y `AST–GGT` (0.491).
 - **Hipótesis:** se confirmaron las diferencias de `AST` y `ALB` entre donantes y pacientes y la correlación `ALB–PROT`; la asociación entre sexo y diagnóstico no fue significativa (p = 0.0673).
-- **PCA:** PC1 explica el 21.23 % y PC2 el 18.46 % de la varianza (39.69 % juntas). Con 7 componentes se conserva el 83.95 %.
+- **PCA:** PC1 explica el 21.45 % y PC2 el 18.45 % de la varianza (39.90 % juntas). Con 7 componentes se conserva el 84.32 %.
 
 ![Pacientes proyectados en PC1 y PC2 según su diagnóstico](images/pca_pc1_pc2.png)
 
@@ -97,8 +97,8 @@ Abrir los notebooks de la carpeta `notebooks/` en orden (01 → 02 → 03) y eje
 - HCV Data permitió aplicar todo el proceso visto en el curso: calidad de datos, estadística descriptiva, relaciones entre variables, pruebas de hipótesis, preprocesamiento y PCA.
 - Los marcadores de laboratorio cambian claramente entre donantes y pacientes, sobre todo en cirrosis, y eso se confirmó con las pruebas de hipótesis y con el PCA.
 - Los valores atípicos no se eliminaron porque en su mayoría son valores reales de pacientes.
-- El PCA con dos componentes sirve para visualizar, pero deja por fuera el 60.31 % de la varianza. Para un modelo convendría usar 7 componentes.
-- Limitaciones: el error de `ALB` del registro 217 no se corrigió en el preprocesamiento y la imputación usó el diagnóstico de cada paciente.
+- El PCA con dos componentes sirve para visualizar, pero deja por fuera el 60.10 % de la varianza. Para un modelo convendría usar 7 componentes.
+- Limitaciones: la imputación usó el diagnóstico de cada paciente. El error de `ALB` del registro 217 se pasó a faltante y se imputó en el preprocesamiento.
 
 ## Entregables
 
